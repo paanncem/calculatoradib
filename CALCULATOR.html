@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>Conversion Calculator</title>
+</head>
+<body>
+    <h1>Conversion Calculator</h1>
+    <p>Select the type of conversion, enter your value and click 'Convert'.</p>
+
+    <select id="conversion-type">
+        <option value="temp">Temperature (Celsius to Fahrenheit)</option>
+		<option value="temp2" selected>Temperature (Fahrenheit to Celcius)</option>
+        <option value="length">Length (cm to inch)</option>
+		<option value="length2">Length (km to m)</option>
+        <option value="weight">Weight (kg to g)</option>
+    </select>
+
+    <input type="number" id="input-value" placeholder="Enter your value">
+
+    <button onClick="convert()">Convert</button>
+
+    <p id="result"></p>
+
+     <script>
+		function convert() {
+            var conversionType = document.getElementById('conversion-type').value;
+            var inputValue = document.getElementById('input-value').value;
+            var result;
+
+            switch (conversionType) {
+                case 'temp':
+                    // Convert Celsius to Fahrenheit
+                    result = inputValue * 9/5 + 32;
+                    break;
+				case 'temp2':
+                    // Convert Fahrenheit to Celcius
+                    result = (inputValue - 32) * 5/9 ;
+                    break;
+                case 'length':
+                    // Convert cm to inch
+                    result = inputValue / 2.54;
+                    break;
+				case 'length2':
+                    // Convert km to m
+                    result = inputValue * 1000;
+                    break;
+                case 'weight':
+                    // Convert kg to g
+                    result = inputValue * 1000;
+                    break;
+            }
+
+            document.getElementById('result').innerHTML = 'Result: ' + result;
+        }
+	</script>
+	<nav class="class3"><a class="class6" href="home.html" target="_self">HOMEPAGE</a>  |  <a class="class6" href="page.html" target="_self"> CONVERSION PAGE</a></nav> 
+	<hr>
+	</hr>
+</body>
+</html>
